@@ -51,20 +51,35 @@ function intro(step){
   }
 
   if (step>220){
+    h2nalpha=(step-220)/30
+    oalpha=(step-225)/30
+    ohalpha=(step-230)/30
+    if (h2nalpha>1){h2nalpha=1}
+    if (oalpha>1){oalpha=1}
+    if (ohalpha>1){ohalpha=1}
+
+    eval("ctx.fillStyle = 'rgba(255, 255, 255,"+h2nalpha+")'")
     ctx.fillText("H N",160,390)
     ctx.font="10px quizma-light";
     ctx.fillText("2",175,390)
+    eval("ctx.fillStyle = 'rgba(255, 255, 255,"+oalpha+")'")
     ctx.font="25px quizma-thin";
     ctx.fillText("OH",605,427)
+    eval("ctx.fillStyle = 'rgba(255, 255, 255,"+ohalpha+")'")
     ctx.fillText("O",513,360)
+    ctx.fillStyle="white"
   }
 
   if (step>230){
+    titlealpha=(step-230)/40
+    if (titlealpha>1){titlealpha=1}
+    eval("ctx.fillStyle = 'rgba(255, 255, 255,"+titlealpha+")'")
     ctx.font="100px quizma-thin";
     ctx.fillText("GAB A",265,100)
     ctx.font="40px quizma-light";
     ctx.fillText("2",435,100)
     ctx.font="25px quizma-thin";
+    fillStyle = "white"
   }
 }
 
