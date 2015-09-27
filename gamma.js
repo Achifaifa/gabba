@@ -85,9 +85,11 @@ function intro(step){
 
 function threedgaba(step){
 
-  mesh = new THREE.Mesh(sphere, material);
-  scene.add( mesh );
+  eval("ctx.drawImage(cube"+Math.floor(step%60)+",400,300)")
 }
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 test=1
 function main(){
@@ -99,8 +101,8 @@ function main(){
   ctx.strokeStyle="white";
 
 
-  intro(step)
-  //threedgaba(step)
+  // intro(step)
+  threedgaba(step)
 
   if (test==0){
     1+1
@@ -109,8 +111,70 @@ function main(){
   ctx.fillText(step,10,580);
 }
 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 items=[
-"./models/cube.gif"];
+"./models/cube0.gif",
+"./models/cube13.gif",
+"./models/cube17.gif",
+"./models/cube20.gif",
+"./models/cube24.gif",
+"./models/cube28.gif",
+"./models/cube31.gif",
+"./models/cube35.gif",
+"./models/cube39.gif",
+"./models/cube42.gif",
+"./models/cube46.gif",
+"./models/cube4.gif",
+"./models/cube53.gif",
+"./models/cube57.gif",
+"./models/cube6.gif",
+"./models/cube10.gif",
+"./models/cube14.gif",
+"./models/cube18.gif",
+"./models/cube21.gif",
+"./models/cube25.gif",
+"./models/cube29.gif",
+"./models/cube32.gif",
+"./models/cube36.gif",
+"./models/cube3.gif",
+"./models/cube43.gif",
+"./models/cube47.gif",
+"./models/cube50.gif",
+"./models/cube54.gif",
+"./models/cube58.gif",
+"./models/cube7.gif",
+"./models/cube11.gif",
+"./models/cube15.gif",
+"./models/cube19.gif",
+"./models/cube22.gif",
+"./models/cube26.gif",
+"./models/cube2.gif",
+"./models/cube33.gif",
+"./models/cube37.gif",
+"./models/cube40.gif",
+"./models/cube44.gif",
+"./models/cube48.gif",
+"./models/cube51.gif",
+"./models/cube55.gif",
+"./models/cube59.gif",
+"./models/cube8.gif",
+"./models/cube12.gif",
+"./models/cube16.gif",
+"./models/cube1.gif",
+"./models/cube23.gif",
+"./models/cube27.gif",
+"./models/cube30.gif",
+"./models/cube34.gif",
+"./models/cube38.gif",
+"./models/cube41.gif",
+"./models/cube45.gif",
+"./models/cube49.gif",
+"./models/cube52.gif",
+"./models/cube56.gif",
+"./models/cube5.gif",
+"./models/cube9.gif"];
 
 // Loader specification
 spin=2*Math.PI;
