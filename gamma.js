@@ -83,6 +83,12 @@ function intro(step){
   }
 }
 
+function threedgaba(step){
+
+  mesh = new THREE.Mesh(sphere, material);
+  scene.add( mesh );
+}
+
 test=1
 function main(){
 
@@ -94,12 +100,64 @@ function main(){
 
 
   intro(step)
+  //threedgaba(step)
 
   if (test==0){
     1+1
   }
 
   ctx.fillText(step,10,580);
+}
+
+items=[
+"./models/cube.gif"];
+
+// Loader specification
+spin=2*Math.PI;
+itemincrement=spin/items.length;
+ctx.lineWidth=5; ctx.strokeStyle="#FABADA";
+x=400; y=300; decpath=false; startrad=3*(Math.PI/2);
+
+function loader(items, allDone) {
+
+  // Return nothing if the item list is empty
+  if (!items) {return;}
+  if ("undefined"===items.length) {items=[items];}
+  // Action every time a image loads
+    var count=items.length;
+    var thingToDoCompleted=function (items, i) {
+    count--;
+    // If all items loaded, launch specified function
+    if (count==0) {
+      ctx.lineWidth=1; 
+      ctx.strokeStyle="white";
+      allDone();
+    }
+    // If not, draw loading bar+message
+    else {
+      ctx.clearRect(0,0,800,600);
+      ctx.beginPath();
+      ctx.arc(x,y,50,startrad,startrad+itemincrement*(items.length-count),false);
+      ctx.stroke();
+      ctx.fillText((items.length-count)+"/"+items.length,x-20,y+5);
+    }};
+  // Actual loading loop
+  for (var i=0; i<items.length; i++){
+    loadImage(items, i, thingToDoCompleted);}}
+
+function loadImage(items, n, onComplete) {
+
+  var onLoad=function (e) {
+    e.target.removeEventListener("load", onLoad);
+    onComplete(items, n);}
+
+  // Defining variable name
+  photoname=items[n].replace("./models/","").replace(".gif","");
+  // Create object and specify source
+  // No var is used to it's created as a global object attribute
+  eval(photoname+"=new Image()");
+  eval(photoname+".addEventListener('load', onLoad, false)");
+  eval(photoname+".src=items[n]");
 }
 
 function demo(ev){
@@ -133,5 +191,9 @@ function menu(){
   track.load();
 }
 
-setInterval(main,1000/60);
+function startanim(){
+  setInterval(main,1000/60);
+}
+
+loader(items, startanim);
 menu()
