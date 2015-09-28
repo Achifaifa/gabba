@@ -85,7 +85,7 @@ function intro(step){
 
 function threedgaba(step){
 
-  eval("ctx.drawImage(cube"+Math.floor(step%60)+",400,300)")
+  eval("ctx.drawImage(cube"+Math.floor(step%60)+","+(400+200*Math.sin(step/30))+",300)")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -93,7 +93,6 @@ function threedgaba(step){
 
 test=1
 function main(){
-
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
   updateclock()
@@ -116,6 +115,8 @@ function main(){
 
 items=[
 "./models/cube0.gif",
+"./models/cube4.gif",
+"./models/cube5.gif",
 "./models/cube13.gif",
 "./models/cube17.gif",
 "./models/cube20.gif",
@@ -126,7 +127,6 @@ items=[
 "./models/cube39.gif",
 "./models/cube42.gif",
 "./models/cube46.gif",
-"./models/cube4.gif",
 "./models/cube53.gif",
 "./models/cube57.gif",
 "./models/cube6.gif",
@@ -173,7 +173,7 @@ items=[
 "./models/cube49.gif",
 "./models/cube52.gif",
 "./models/cube56.gif",
-"./models/cube5.gif",
+
 "./models/cube9.gif"];
 
 // Loader specification
