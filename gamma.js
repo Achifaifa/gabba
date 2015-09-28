@@ -36,24 +36,24 @@ function intro(step){
     else      {drawline((i*80)-40,380,((i+1)*80)-40,420)}
   }
   
-  if (step>25){
-    sidedel=step-25
+  if (step>45){
+    sidedel=(step-45)*3
     if(sidedel>=200){sidedel=200}
     ctx.clearRect(0,0,sidedel,600)
     ctx.clearRect(800,0,-sidedel,600)
   }
 
-  if (step>190){
-    doublebond=step-190
+  if (step>160){
+    doublebond=step-160
     if (doublebond>20){doublebond=20}
     drawline(517,382,517,382-doublebond)
     drawline(523,382,523,382-doublebond)
   }
 
-  if (step>220){
-    h2nalpha=(step-220)/30
-    oalpha=(step-225)/30
-    ohalpha=(step-230)/30
+  if (step>180){
+    h2nalpha=(step-180)/30
+    oalpha=(step-185)/30
+    ohalpha=(step-190)/30
     if (h2nalpha>1){h2nalpha=1}
     if (oalpha>1){oalpha=1}
     if (ohalpha>1){ohalpha=1}
@@ -70,8 +70,8 @@ function intro(step){
     ctx.fillStyle="white"
   }
 
-  if (step>230){
-    titlealpha=(step-230)/40
+  if (step>275){
+    titlealpha=(step-275)/40
     if (titlealpha>1){titlealpha=1}
     eval("ctx.fillStyle = 'rgba(255, 255, 255,"+titlealpha+")'")
     ctx.font="100px quizma-thin";
@@ -91,7 +91,7 @@ function threedgaba(step){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -101,10 +101,16 @@ function main(){
 
 
   // intro(step)
-  threedgaba(step)
+  // threedgaba(step)
 
   if (test==0){
-    1+1
+
+    if (step<670){
+      intro(step)
+    }
+    else if (step<1000){
+      ctx.fillText("blabal",400,300)
+    }
   }
 
   ctx.fillText(step,10,580);
@@ -240,14 +246,14 @@ function menu(){
   menuc=0;
   done=0;
   ctx.fillText("LOADERING",250,310);
-  track=new Audio("audio.wav");
-  track.src="./audio.wav";
+  track=new Audio("audio.mp3");
+  track.src="./audio.mp3";
   
   track.addEventListener("canplaythrough",function(){
     ctx.clearRect(0,0,600,600);
-    drawline(0,250,600,250);
-    drawline(0,350,600,350);
-    ctx.fillText("PLAY",225,310);
+    drawline(100,250,700,250);
+    drawline(100,350,700,350);
+    ctx.fillText("PLAY",325,310);
     done=1;
     c.addEventListener("mousedown",demo,false)
     },false
@@ -259,5 +265,5 @@ function startanim(){
   setInterval(main,1000/60);
 }
 
-loader(items, startanim);
+loader(items, menu);
 menu()
