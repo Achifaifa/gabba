@@ -37,7 +37,7 @@ function intro(step){
   }
   
   if (step>45){
-    sidedel=(step-45)*3
+    sidedel=(step-45)*4
     if(sidedel>=200){sidedel=200}
     ctx.clearRect(0,0,sidedel,600)
     ctx.clearRect(800,0,-sidedel,600)
@@ -51,9 +51,9 @@ function intro(step){
   }
 
   if (step>180){
-    h2nalpha=(step-180)/30
-    oalpha=(step-185)/30
-    ohalpha=(step-190)/30
+    h2nalpha=(step-180)/50
+    oalpha=(step-195)/50
+    ohalpha=(step-210)/50
     if (h2nalpha>1){h2nalpha=1}
     if (oalpha>1){oalpha=1}
     if (ohalpha>1){ohalpha=1}
@@ -91,7 +91,7 @@ function threedgaba(step){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -101,7 +101,7 @@ function main(){
 
 
   // intro(step)
-  // threedgaba(step)
+  threedgaba(step)
 
   if (test==0){
 
@@ -109,7 +109,7 @@ function main(){
       intro(step)
     }
     else if (step<1000){
-      ctx.fillText("blabal",400,300)
+      ctx.fillText("untz untz untz",350,300)
     }
   }
 
@@ -120,67 +120,66 @@ function main(){
 ///////////////////////////////////////////////////////////////////////////////
 
 items=[
-"./models/cube0.gif",
-"./models/cube4.gif",
-"./models/cube5.gif",
-"./models/cube13.gif",
-"./models/cube17.gif",
-"./models/cube20.gif",
-"./models/cube24.gif",
-"./models/cube28.gif",
-"./models/cube31.gif",
-"./models/cube35.gif",
-"./models/cube39.gif",
-"./models/cube42.gif",
-"./models/cube46.gif",
-"./models/cube53.gif",
-"./models/cube57.gif",
-"./models/cube6.gif",
-"./models/cube10.gif",
-"./models/cube14.gif",
-"./models/cube18.gif",
-"./models/cube21.gif",
-"./models/cube25.gif",
-"./models/cube29.gif",
-"./models/cube32.gif",
-"./models/cube36.gif",
-"./models/cube3.gif",
-"./models/cube43.gif",
-"./models/cube47.gif",
-"./models/cube50.gif",
-"./models/cube54.gif",
-"./models/cube58.gif",
-"./models/cube7.gif",
-"./models/cube11.gif",
-"./models/cube15.gif",
-"./models/cube19.gif",
-"./models/cube22.gif",
-"./models/cube26.gif",
-"./models/cube2.gif",
-"./models/cube33.gif",
-"./models/cube37.gif",
-"./models/cube40.gif",
-"./models/cube44.gif",
-"./models/cube48.gif",
-"./models/cube51.gif",
-"./models/cube55.gif",
-"./models/cube59.gif",
-"./models/cube8.gif",
-"./models/cube12.gif",
-"./models/cube16.gif",
-"./models/cube1.gif",
-"./models/cube23.gif",
-"./models/cube27.gif",
-"./models/cube30.gif",
-"./models/cube34.gif",
-"./models/cube38.gif",
-"./models/cube41.gif",
-"./models/cube45.gif",
-"./models/cube49.gif",
-"./models/cube52.gif",
-"./models/cube56.gif",
-
-"./models/cube9.gif"];
+"./models/cube0.png",
+"./models/cube4.png",
+"./models/cube5.png",
+"./models/cube13.png",
+"./models/cube17.png",
+"./models/cube20.png",
+"./models/cube24.png",
+"./models/cube28.png",
+"./models/cube31.png",
+"./models/cube35.png",
+"./models/cube39.png",
+"./models/cube42.png",
+"./models/cube46.png",
+"./models/cube53.png",
+"./models/cube57.png",
+"./models/cube6.png",
+"./models/cube10.png",
+"./models/cube14.png",
+"./models/cube18.png",
+"./models/cube21.png",
+"./models/cube25.png",
+"./models/cube29.png",
+"./models/cube32.png",
+"./models/cube36.png",
+"./models/cube3.png",
+"./models/cube43.png",
+"./models/cube47.png",
+"./models/cube50.png",
+"./models/cube54.png",
+"./models/cube58.png",
+"./models/cube7.png",
+"./models/cube11.png",
+"./models/cube15.png",
+"./models/cube19.png",
+"./models/cube22.png",
+"./models/cube26.png",
+"./models/cube2.png",
+"./models/cube33.png",
+"./models/cube37.png",
+"./models/cube40.png",
+"./models/cube44.png",
+"./models/cube48.png",
+"./models/cube51.png",
+"./models/cube55.png",
+"./models/cube59.png",
+"./models/cube8.png",
+"./models/cube12.png",
+"./models/cube16.png",
+"./models/cube1.png",
+"./models/cube23.png",
+"./models/cube27.png",
+"./models/cube30.png",
+"./models/cube34.png",
+"./models/cube38.png",
+"./models/cube41.png",
+"./models/cube45.png",
+"./models/cube49.png",
+"./models/cube52.png",
+"./models/cube56.png",
+"./models/cube9.png"];
 
 // Loader specification
 spin=2*Math.PI;
@@ -222,7 +221,7 @@ function loadImage(items, n, onComplete) {
     onComplete(items, n);}
 
   // Defining variable name
-  photoname=items[n].replace("./models/","").replace(".gif","");
+  photoname=items[n].replace("./models/","").replace(".png","");
   // Create object and specify source
   // No var is used to it's created as a global object attribute
   eval(photoname+"=new Image()");
