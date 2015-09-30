@@ -31,6 +31,14 @@ function drawline(x1,y1,x2,y2){
 
 function intro(step){
 
+  if (step>330){
+    gabaalphastep=1-((step-330)/350)
+    ctx.drawImage(gaba0,200,100)
+    eval("ctx.fillStyle = 'rgba(0, 0, 0,"+gabaalphastep+")'")
+    ctx.fillRect(0,0,800,600)
+    ctx.fillStyle="white"
+  }
+
   for (i=0;i<11;i++){
     if(i%2==0){drawline((i*80)-40,420,((i+1)*80)-40,380)}
     else      {drawline((i*80)-40,380,((i+1)*80)-40,420)}
@@ -85,13 +93,13 @@ function intro(step){
 
 function threedgaba(step){
 
-  eval("ctx.drawImage(cube"+Math.floor(step%60)+","+(400+200*Math.sin(step/30))+",300)")
+  eval("ctx.drawImage(cube"+Math.floor(step%60)+",400,300)")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -101,7 +109,7 @@ function main(){
 
 
   // intro(step)
-  threedgaba(step)
+  // threedgaba(step)
 
   if (test==0){
 
@@ -179,7 +187,8 @@ items=[
 "./models/cube49.png",
 "./models/cube52.png",
 "./models/cube56.png",
-"./models/cube9.png"];
+"./models/cube9.png",
+"./models/gaba0.png"];
 
 // Loader specification
 spin=2*Math.PI;
@@ -249,7 +258,7 @@ function menu(){
   track.src="./audio.mp3";
   
   track.addEventListener("canplaythrough",function(){
-    ctx.clearRect(0,0,600,600);
+    ctx.clearRect(0,0,800,600);
     drawline(100,250,700,250);
     drawline(100,350,700,350);
     ctx.fillText("PLAY",325,310);
