@@ -33,7 +33,7 @@ function intro(step){
 
   if (step>330){
     gabaalphastep=1-((step-330)/350)
-    ctx.drawImage(gaba0,200,100)
+    ctx.drawImage(gaba0,200,50)
     eval("ctx.fillStyle = 'rgba(0, 0, 0,"+gabaalphastep+")'")
     ctx.fillRect(0,0,800,600)
     ctx.fillStyle="white"
@@ -128,66 +128,6 @@ function main(){
 ///////////////////////////////////////////////////////////////////////////////
 
 items=[
-"./models/cube0.png",
-"./models/cube4.png",
-"./models/cube5.png",
-"./models/cube13.png",
-"./models/cube17.png",
-"./models/cube20.png",
-"./models/cube24.png",
-"./models/cube28.png",
-"./models/cube31.png",
-"./models/cube35.png",
-"./models/cube39.png",
-"./models/cube42.png",
-"./models/cube46.png",
-"./models/cube53.png",
-"./models/cube57.png",
-"./models/cube6.png",
-"./models/cube10.png",
-"./models/cube14.png",
-"./models/cube18.png",
-"./models/cube21.png",
-"./models/cube25.png",
-"./models/cube29.png",
-"./models/cube32.png",
-"./models/cube36.png",
-"./models/cube3.png",
-"./models/cube43.png",
-"./models/cube47.png",
-"./models/cube50.png",
-"./models/cube54.png",
-"./models/cube58.png",
-"./models/cube7.png",
-"./models/cube11.png",
-"./models/cube15.png",
-"./models/cube19.png",
-"./models/cube22.png",
-"./models/cube26.png",
-"./models/cube2.png",
-"./models/cube33.png",
-"./models/cube37.png",
-"./models/cube40.png",
-"./models/cube44.png",
-"./models/cube48.png",
-"./models/cube51.png",
-"./models/cube55.png",
-"./models/cube59.png",
-"./models/cube8.png",
-"./models/cube12.png",
-"./models/cube16.png",
-"./models/cube1.png",
-"./models/cube23.png",
-"./models/cube27.png",
-"./models/cube30.png",
-"./models/cube34.png",
-"./models/cube38.png",
-"./models/cube41.png",
-"./models/cube45.png",
-"./models/cube49.png",
-"./models/cube52.png",
-"./models/cube56.png",
-"./models/cube9.png",
 "./models/gaba0.png"];
 
 // Loader specification
