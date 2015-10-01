@@ -31,9 +31,9 @@ function drawline(x1,y1,x2,y2){
 
 function intro(step){
 
-  if (step>330){
-    gabaalphastep=1-((step-330)/350)
-    ctx.drawImage(gaba0,200,50)
+  if (step>400){
+    gabaalphastep=1-((step-400)/350)
+    ctx.drawImage(gaba0,200,100)
     eval("ctx.fillStyle = 'rgba(0, 0, 0,"+gabaalphastep+")'")
     ctx.fillRect(0,0,800,600)
     ctx.fillStyle="white"
@@ -93,13 +93,13 @@ function intro(step){
 
 function threedgaba(step){
 
-  eval("ctx.drawImage(cube"+Math.floor(step%60)+",400,300)")
+  ctx.drawImage(gaba0,200,50)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -107,8 +107,8 @@ function main(){
   ctx.fillStyle="white";
   ctx.strokeStyle="white";
 
-
-  // intro(step)
+  // test zone
+  intro(step)
   // threedgaba(step)
 
   if (test==0){
@@ -116,7 +116,10 @@ function main(){
     if (step<670){
       intro(step)
     }
+
     else if (step<1000){
+      step=step-670
+      threedgaba(step)
       ctx.fillText("untz untz untz",350,300)
     }
   }
@@ -201,7 +204,7 @@ function menu(){
     ctx.clearRect(0,0,800,600);
     drawline(100,250,700,250);
     drawline(100,350,700,350);
-    ctx.fillText("PLAY",325,310);
+    ctx.fillText("PLAY",350,310);
     done=1;
     c.addEventListener("mousedown",demo,false)
     },false
