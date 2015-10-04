@@ -93,7 +93,8 @@ function intro(step){
 
 function threedgaba(step){
 
-  ctx.drawImage(gaba0,200,50)
+  step=Math.floor(step%22)
+  eval("ctx.drawImage(gaba"+step+",200,50)")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -108,8 +109,8 @@ function main(){
   ctx.strokeStyle="white";
 
   // test zone
-  intro(step)
-  // threedgaba(step)
+  //intro(step)
+  threedgaba(step)
 
   if (test==0){
 
@@ -131,7 +132,28 @@ function main(){
 ///////////////////////////////////////////////////////////////////////////////
 
 items=[
-"./models/gaba0.png"];
+"./models/gaba0.png",
+"./models/gaba1.png",
+"./models/gaba2.png",
+"./models/gaba3.png",
+"./models/gaba4.png",
+"./models/gaba5.png",
+"./models/gaba6.png",
+"./models/gaba7.png",
+"./models/gaba8.png",
+"./models/gaba9.png",
+"./models/gaba10.png",
+"./models/gaba11.png",
+"./models/gaba12.png",
+"./models/gaba13.png",
+"./models/gaba14.png",
+"./models/gaba15.png",
+"./models/gaba16.png",
+"./models/gaba17.png",
+"./models/gaba18.png",
+"./models/gaba19.png",
+"./models/gaba20.png",
+"./models/gaba21.png"];
 
 // Loader specification
 spin=2*Math.PI;
