@@ -33,7 +33,7 @@ function intro(step){
 
   if (step>400){
     gabaalphastep=1-((step-400)/350)
-    ctx.drawImage(gaba0,200,100)
+    ctx.drawImage(gaba0,0,0)
     eval("ctx.fillStyle = 'rgba(0, 0, 0,"+gabaalphastep+")'")
     ctx.fillRect(0,0,800,600)
     ctx.fillStyle="white"
@@ -93,14 +93,14 @@ function intro(step){
 
 function threedgaba(step){
 
-  step=Math.floor(step%22)
-  eval("ctx.drawImage(gaba"+step+",200,50)")
+  step=Math.floor(step%41)
+  eval("ctx.drawImage(gaba"+step+",0,0)")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -110,7 +110,7 @@ function main(){
 
   // test zone
   //intro(step)
-  threedgaba(step)
+  //threedgaba(step)
 
   if (test==0){
 
@@ -153,7 +153,26 @@ items=[
 "./models/gaba18.png",
 "./models/gaba19.png",
 "./models/gaba20.png",
-"./models/gaba21.png"];
+"./models/gaba21.png",
+"./models/gaba22.png",
+"./models/gaba23.png",
+"./models/gaba24.png",
+"./models/gaba25.png",
+"./models/gaba26.png",
+"./models/gaba27.png",
+"./models/gaba28.png",
+"./models/gaba29.png",
+"./models/gaba30.png",
+"./models/gaba31.png",
+"./models/gaba32.png",
+"./models/gaba33.png",
+"./models/gaba34.png",
+"./models/gaba35.png",
+"./models/gaba36.png",
+"./models/gaba37.png",
+"./models/gaba38.png",
+"./models/gaba39.png",
+"./models/gaba40.png"];
 
 // Loader specification
 spin=2*Math.PI;
