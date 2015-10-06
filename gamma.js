@@ -119,6 +119,7 @@ function main(){
   updateclock()
   ctx.fillStyle="white";
   ctx.strokeStyle="white";
+  ctx.lineWidth=1; 
 
   // test zone
   //intro(step)
@@ -184,7 +185,32 @@ items=[
 "./models/gaba37.png",
 "./models/gaba38.png",
 "./models/gaba39.png",
-"./models/gaba40.png"];
+"./models/gaba40.png",
+"./models/lglutamic.png",
+"./models/lserine.png",
+"./models/aspartic.png",
+"./models/acetilcholine.png",
+"./models/adrenaline.png",
+"./models/atp.png",
+"./models/gaba.png",
+"./models/glycine.png",
+"./models/histamine.png",
+"./models/serotonin.png",
+"./models/tryptamine.png",
+"./models/tyramine.png",
+"./models/lglutamic3d.png",
+"./models/lserine3d.png",
+"./models/aspartic3d.png",
+"./models/acetilcholine3d.png",
+"./models/adrenaline3d.png",
+"./models/atp3d.png",
+"./models/cart3d.png",
+"./models/gaba3d.png",
+"./models/glycine3d.png",
+"./models/histamine3d.png",
+"./models/serotonin3d.png",
+"./models/tryptamine3d.png",
+"./models/tyramine3d.png"];
 
 // Loader specification
 spin=2*Math.PI;
@@ -254,6 +280,7 @@ function menu(){
   track.src="./audio.mp3";
   
   track.addEventListener("canplaythrough",function(){
+    ctx.lineWidth=1; 
     ctx.clearRect(0,0,800,600);
     drawline(100,250,700,250);
     drawline(100,350,700,350);
