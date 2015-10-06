@@ -8,12 +8,15 @@ ctx.strokeStyle="white";
 ctx.font="25px quizma-thin";
 noclear=0;
 step=0
+beat=0
 
 starttime=Date.now()
 
 function updateclock(){
 
-  step=(Date.now()-starttime)/33
+  deltat=Date.now()-starttime
+  step=Math.floor(deltat/33)
+  beat=Math.floor(deltat/344.8276)
 }
 
 function draw(){
@@ -109,6 +112,23 @@ function threedgaba(step){
   eval("ctx.drawImage(gaba"+step+",0,0)")
 }
 
+
+function flashmodels(beat){
+
+  beat=beat%25
+
+  if (beat%2==0){
+
+    ctx.fillRect(0,0,800,600);
+    ctx.drawImage(models[beat],0,0,800,600)
+  }
+
+  else{
+
+    ctx.drawImage(models[beat],0,0,800,600)
+  }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -124,21 +144,44 @@ function main(){
   // test zone
   //intro(step)
   //threedgaba(step)
+  //flashmodels(beat)
 
   if (test==0){
 
     if (step<670){
+
       intro(step)
     }
 
     else if (step<1000){
+
       substep=step-670
       threedgaba(substep)
+    }
+
+    else if (step<1670){
+
+      flashmodels(beat)
+    }
+
+    else if (step<2010){
+
+      ctx.fillText("untz untz untz",350,300)
+    }
+
+    else if (step<2380){
+
+      ctx.fillText("untz untz untz",350,300)
+    }
+
+    else if (step<2670){
+
       ctx.fillText("untz untz untz",350,300)
     }
   }
 
   ctx.fillText(step,10,580);
+  ctx.fillText(beat,80,580);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -273,6 +316,7 @@ function demo(ev){
 
 function menu(){
 
+  models=[lglutamic,lglutamic3d,lserine,lserine3d,aspartic,aspartic3d,acetilcholine,acetilcholine3d,adrenaline,adrenaline3d,atp,atp3d,gaba,gaba3d,glycine,glycine3d,histamine,histamine3d,serotonin,serotonin3d,tryptamine,tryptamine3d,tyramine,tyramine3d]
   menuc=0;
   done=0;
   ctx.fillText("LOADERING",250,310);
