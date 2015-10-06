@@ -131,8 +131,8 @@ function main(){
     }
 
     else if (step<1000){
-      step=step-670
-      threedgaba(step)
+      substep=step-670
+      threedgaba(substep)
       ctx.fillText("untz untz untz",350,300)
     }
   }
