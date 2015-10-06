@@ -39,17 +39,29 @@ function intro(step){
     ctx.fillStyle="white"
   }
 
-  for (i=0;i<11;i++){
+  if (step<160){
+    chainbottom=0
+    chaintop=11
+  }
+  else{
+    chaintop=8
+    chainbottom=3
+  }
+  for (i=chainbottom;i<chaintop;i++){
     if(i%2==0){drawline((i*80)-40,420,((i+1)*80)-40,380)}
     else      {drawline((i*80)-40,380,((i+1)*80)-40,420)}
   }
-  
-  if (step>45){
-    sidedel=(step-45)*4
-    if(sidedel>=200){sidedel=200}
-    ctx.clearRect(0,0,sidedel,600)
-    ctx.clearRect(800,0,-sidedel,600)
+
+  if (step<160){
+    if (step>45){
+      sidedel=(step-45)*4
+      if(sidedel>=200){sidedel=200}
+      ctx.clearRect(0,0,sidedel,600)
+      ctx.clearRect(800,0,-sidedel,600)
+    }
   }
+
+  
 
   if (step>160){
     doublebond=step-160
