@@ -32,6 +32,32 @@ function drawline(x1,y1,x2,y2){
   draw();
 }
 
+function normscroll(y,text,step){
+
+  for (i=0; i<text.length; i++){
+    xpos=800-5*step+i*25;
+    ctx.fillText(text[i],xpos,y)
+  }
+}
+
+function shaketext(x,y,text){
+  /*
+  Generates a title screen that breaks over time
+  x,y: Text position
+  text: String to be shown
+  step: clock signal
+  */
+
+  //if (step>70 && step<130) {step=97+(step/50)}
+  for (i=0; i<text.length; i++){
+    ctx.fillText(
+      text[i],
+      x-(6*Math.random()-3)+(20*i),
+      y-(6*Math.random()-3)
+    );
+  }
+}
+
 function intro(step){
 
   if (step>400){
@@ -63,8 +89,6 @@ function intro(step){
       ctx.clearRect(800,0,-sidedel,600)
     }
   }
-
-  
 
   if (step>160){
     doublebond=step-160
@@ -113,7 +137,7 @@ function threedgaba(step){
 }
 
 
-function flashmodels(beat){
+function flashmodels(step,beat){
 
   beat=beat%25
 
@@ -121,18 +145,35 @@ function flashmodels(beat){
 
     ctx.fillRect(0,0,800,600);
     ctx.drawImage(models[beat],0,0,800,600)
+    ctx.fillStyle="black"
   }
 
   else{
 
     ctx.drawImage(models[beat],0,0,800,600)
   }
+
+  ctx.font="50px sans"
+  normscroll(100,"TEST",step)
+  ctx.font="25px quizma-thin";
+
+}
+
+function greets(step){
+
+  normscroll(50,"Greets to",step%250)
+  shaketext(280,100,"Kandel")
+  shaketext(70,150,"subjectB")
+  shaketext(420,200,"subjectB")
+  shaketext(200,250,"subjectC")
+  shaketext(520,300,"subjectD")
+  shaketext(350,350,"subjectE")
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -144,7 +185,8 @@ function main(){
   // test zone
   //intro(step)
   //threedgaba(step)
-  //flashmodels(beat)
+  //flashmodels(step,beat)
+  greets(step)
 
   if (test==0){
 
@@ -161,12 +203,14 @@ function main(){
 
     else if (step<1670){
 
-      flashmodels(beat)
+      substep=step-1000
+      flashmodels(substep,beat)
     }
 
     else if (step<2010){
 
-      ctx.fillText("untz untz untz",350,300)
+      substep=step-1670
+      greets(substep)
     }
 
     else if (step<2380){
@@ -316,7 +360,7 @@ function demo(ev){
 
 function menu(){
 
-  models=[lglutamic,lglutamic3d,lserine,lserine3d,aspartic,aspartic3d,acetilcholine,acetilcholine3d,adrenaline,adrenaline3d,atp,atp3d,gaba,gaba3d,glycine,glycine3d,histamine,histamine3d,serotonin,serotonin3d,tryptamine,tryptamine3d,tyramine,tyramine3d]
+  models=[lglutamic,lglutamic3d,lserine,lserine3d,aspartic,aspartic3d,acetilcholine,histamine3d,adrenaline,adrenaline3d,atp,atp3d,gaba,gaba3d,glycine,glycine3d,histamine,histamine3d,serotonin,aspartic3d,tryptamine,tryptamine3d,tyramine,tyramine3d]
   menuc=0;
   done=0;
   ctx.fillText("LOADERING",250,310);
