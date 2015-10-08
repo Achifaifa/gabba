@@ -138,14 +138,12 @@ function flashmodels(step,beat){
   if (beat%2==0){
 
     ctx.fillRect(0,0,800,600);
-    ctx.drawImage(models[beat],0,0,800,600)
     ctx.fillStyle="black"
   }
 
-  else{
-
-    ctx.drawImage(models[beat],0,0,800,600)
-  }
+  ysize=models[beat].height*(600/models[beat].width)
+  ydif=600-ysize
+  ctx.drawImage(models[beat],100,ydif/2,600,ysize)
 
   ctx.font="50px sans"
   normscroll(100,"TEST",step)
