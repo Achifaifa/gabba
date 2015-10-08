@@ -41,12 +41,6 @@ function normscroll(y,text,step){
 }
 
 function shaketext(x,y,text){
-  /*
-  Generates a title screen that breaks over time
-  x,y: Text position
-  text: String to be shown
-  step: clock signal
-  */
 
   //if (step>70 && step<130) {step=97+(step/50)}
   for (i=0; i<text.length; i++){
@@ -162,18 +156,164 @@ function flashmodels(step,beat){
 function greets(step){
 
   normscroll(50,"Greets to",step%250)
-  shaketext(280,100,"Kandel")
-  shaketext(70,150,"subjectB")
-  shaketext(420,200,"subjectB")
-  shaketext(200,250,"subjectC")
-  shaketext(520,300,"subjectD")
-  shaketext(350,350,"subjectE")
+
+  shaketext(305,100,"Kandel")
+  creditalpha=1-(step/50)
+  eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha+")'")
+  ctx.fillRect(290,105,200,-40)
+  ctx.fillStyle="white"
+
+
+  if (step>35){
+    shaketext(95,150,"Gasset")
+    creditalpha2=1-((step-35)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha2+")'")
+    ctx.fillRect(85,160,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>70){
+    shaketext(445,200,"Sacks")
+    creditalpha3=1-((step-70)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha3+")'")
+    ctx.fillRect(435,210,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>115){
+    shaketext(225,250,"Liepmann")
+    creditalpha4=1-((step-115)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha4+")'")
+    ctx.fillRect(215,260,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>140){
+    shaketext(545,300,"Vogt")
+    creditalpha5=1-((step-140)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha5+")'")
+    ctx.fillRect(535,310,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>175){
+    shaketext(375,350,"Llinás")
+    creditalpha6=1-((step-175)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha6+")'")
+    ctx.fillRect(365,360,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>210){
+    shaketext(150,400,"Westphal")
+    creditalpha7=1-((step-210)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha7+")'")
+    ctx.fillRect(140,410,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>245){
+    shaketext(525,450,"Charcot")
+    creditalpha8=1-((step-245)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha8+")'")
+    ctx.fillRect(515,460,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>280){
+    shaketext(300,500,"Marinescu")
+    creditalpha9=1-((step-280)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha9+")'")
+    ctx.fillRect(290,510,200,-40)
+    ctx.fillStyle="white"
+  }
+}
+
+function actualgreets(step){
+
+  normscroll(50,"No, seriously",step%250)
+
+  shaketext(305,100,"MeTrO")
+  creditalpha=1-(step/50)
+  eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha+")'")
+  ctx.fillRect(290,105,200,-40)
+  ctx.fillStyle="white"
+
+
+  if (step>35){
+    shaketext(170,150,"SOGA")
+    creditalpha2=1-((step-35)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha2+")'")
+    ctx.fillRect(160,160,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>70){
+    shaketext(445,200,"Bixo")
+    creditalpha3=1-((step-70)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha3+")'")
+    ctx.fillRect(435,210,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>115){
+    shaketext(225,250,"DC4Lan team")
+    creditalpha4=1-((step-115)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha4+")'")
+    ctx.fillRect(215,260,300,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>140){
+    shaketext(545,300,"Freddy")
+    creditalpha5=1-((step-140)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha5+")'")
+    ctx.fillRect(535,310,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>175){
+    shaketext(300,350,"H4m")
+    creditalpha6=1-((step-175)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha6+")'")
+    ctx.fillRect(290,360,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>210){
+    shaketext(150,400,"EKParty scene crew")
+    creditalpha7=1-((step-210)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha7+")'")
+    ctx.fillRect(140,410,400,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>245){
+    shaketext(525,450,"PKT Team")
+    creditalpha8=1-((step-245)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha8+")'")
+    ctx.fillRect(515,460,200,-40)
+    ctx.fillStyle="white"
+  }
+
+  if (step>280){
+    shaketext(300,500,"NecroStudios")
+    creditalpha9=1-((step-280)/50)
+    eval("ctx.fillStyle='rgba(0, 0, 0,"+creditalpha9+")'")
+    ctx.fillRect(290,510,280,-40)
+    ctx.fillStyle="white"
+  }
+}
+
+function fitimage(){
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -186,7 +326,8 @@ function main(){
   //intro(step)
   //threedgaba(step)
   //flashmodels(step,beat)
-  greets(step)
+  // greets(step)
+  // actualgreets(step)
 
   if (test==0){
 
@@ -213,9 +354,10 @@ function main(){
       greets(substep)
     }
 
-    else if (step<2380){
+    else if (step<2300){
 
-      ctx.fillText("untz untz untz",350,300)
+      substep=step-2010
+      actualgreets(substep)
     }
 
     else if (step<2670){
