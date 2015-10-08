@@ -133,7 +133,7 @@ function threedgaba(step){
 
 function flashmodels(step,beat){
 
-  beat=beat%25
+  beat=beat%24
 
   if (beat%2==0){
 
@@ -313,7 +313,7 @@ function fitimage(){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -325,7 +325,7 @@ function main(){
   // test zone
   //intro(step)
   //threedgaba(step)
-  //flashmodels(step,beat)
+  flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
 
@@ -354,7 +354,7 @@ function main(){
       greets(substep)
     }
 
-    else if (step<2300){
+    else if (step<2350){
 
       substep=step-2010
       actualgreets(substep)
@@ -437,7 +437,6 @@ items=[
 "./models/gaba3d.png",
 "./models/glycine3d.png",
 "./models/histamine3d.png",
-"./models/serotonin3d.png",
 "./models/tryptamine3d.png",
 "./models/tyramine3d.png"];
 
