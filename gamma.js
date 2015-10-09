@@ -130,7 +130,7 @@ function threedgaba(step){
   eval("ctx.drawImage(gaba"+step+",0,0)")
 }
 
-
+speeds=[1,1,1.2,1.7,2,1.5,0.9]
 function flashmodels(step,beat){
 
   beat=beat%24
@@ -145,13 +145,14 @@ function flashmodels(step,beat){
   ydif=600-ysize
   ctx.drawImage(models[beat],100,ydif/2,600,ysize)
 
+
   ctx.font="50px sans"
-  normscroll(100,"TEST STRING 1",step)
-  normscroll(150,"TEST STRING 2",step-200)
-  normscroll(200,"TEST STRING 3",step-350)
-  normscroll(250,"TEST STRING 4",step-100)
-  normscroll(300,"TEST STRING 5",step-350)
-  normscroll(350,"TEST STRING 6",step-50)
+  normscroll(100,"TEST STRING 1",step*speeds[1])
+  normscroll(150,"TEST STRING 2",(step-200)*speeds[2])
+  normscroll(200,"TEST STRING 3",(step-350)*speeds[3])
+  normscroll(250,"TEST STRING 4",(step-100)*speeds[4])
+  normscroll(300,"TEST STRING 5",(step-350)*speeds[5])
+  normscroll(350,"TEST STRING 6",(step-50)*speeds[6])
   ctx.font="25px quizma-thin";
 
 }
@@ -316,7 +317,7 @@ function fitimage(){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -328,7 +329,7 @@ function main(){
   // test zone
   // intro(step)
   // threedgaba(step)
-  // flashmodels(step,beat)
+  flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
 
