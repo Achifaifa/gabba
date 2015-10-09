@@ -130,7 +130,7 @@ function threedgaba(step){
   eval("ctx.drawImage(gaba"+step+",0,0)")
 }
 
-speeds=[1,1,1.2,1.7,2,1.5,0.9]
+speeds=[1,1,1.2,1.7,2,1.5,0.9,1,2,1.3,1.6]
 function flashmodels(step,beat){
 
   beat=beat%24
@@ -317,7 +317,7 @@ function fitimage(){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -329,7 +329,7 @@ function main(){
   // test zone
   // intro(step)
   // threedgaba(step)
-  flashmodels(step,beat)
+  // flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
 
@@ -358,7 +358,7 @@ function main(){
       greets(substep)
     }
 
-    else if (step<2350){
+    else if (step<2345){
 
       substep=step-2010
       actualgreets(substep)
@@ -368,6 +368,19 @@ function main(){
 
       ctx.fillText("Greets transition",350,300)
     }
+
+    else if (step<3015){
+
+      ctx.fillText("outro",350,300)
+    }
+
+    else{
+
+      ctx.fillText("AE02 logo",350,300)
+
+    }
+
+
   }
 
   ctx.fillText(step,10,580);

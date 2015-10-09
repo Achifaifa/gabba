@@ -4,7 +4,7 @@ HTML5 Canvas demo built around the fact that GABA and gabba sound kinda similar.
 
 ###About the demo:
 
-It uses SFIS (Super Fast Image Switching) to animate a 3D model. The model was animated and rendered in blender. The rest of the artifacts are either canvas native (Drawings with the standard 2D context operations) or images. 
+It uses SFIS™ (Super Fast Image Switching) to animate a 3D model. The model was animated and rendered in blender. The rest of the artifacts are either canvas native (Drawings with the standard 2D context operations) or images. 
 
 It uses unix time for timing, so it should work better in faster computers than the last one. 
 
