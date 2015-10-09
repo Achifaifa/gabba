@@ -146,7 +146,12 @@ function flashmodels(step,beat){
   ctx.drawImage(models[beat],100,ydif/2,600,ysize)
 
   ctx.font="50px sans"
-  normscroll(100,"TEST",step)
+  normscroll(100,"TEST STRING 1",step)
+  normscroll(150,"TEST STRING 2",step-200)
+  normscroll(200,"TEST STRING 3",step-350)
+  normscroll(250,"TEST STRING 4",step-100)
+  normscroll(300,"TEST STRING 5",step-350)
+  normscroll(350,"TEST STRING 6",step-50)
   ctx.font="25px quizma-thin";
 
 }
@@ -311,7 +316,7 @@ function fitimage(){
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -321,9 +326,9 @@ function main(){
   ctx.lineWidth=1; 
 
   // test zone
-  //intro(step)
-  //threedgaba(step)
-  flashmodels(step,beat)
+  // intro(step)
+  // threedgaba(step)
+  // flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
 
@@ -360,7 +365,7 @@ function main(){
 
     else if (step<2670){
 
-      ctx.fillText("untz untz untz",350,300)
+      ctx.fillText("Greets transition",350,300)
     }
   }
 
