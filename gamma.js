@@ -87,7 +87,7 @@ function laz0r2(x,y,colour,step){
   ctx.strokeStyle=colour;
   ctx.fill();
   for (i=0; i<40; i++){
-    drawang(x,y,1600,(1.27*step)+(i*0.157))
+    drawang(x,y,1600,(1.17*step)+(i*0.157))
   }
   ctx.strokeStyle="white";
 }
@@ -351,20 +351,28 @@ function actualgreets(step){
 
 function outro(step){
 
+  ctx.font="40px sans"
+  if (beat%2==0){ctx.fillText("_(^o^\\)",365,250);}
+  else if (beat%2==1){ctx.fillText("\\(^o^_)",365,250);}
+  ctx.fillText("_________",350,260);
+  ctx.fillText("|              |",337,292)
+  ctx.font="25px quizma-thin";
+
+
   laz0r2(500,100,"green",step);
   laz0r2(-20,-20,"green",step);
 
-  margin=(step*3)%480
+  uremargin=(step*4)%480
   for (i=0;i<3;i++){
 
-    ctx.drawImage(urethane,(i*480)-margin,400)
+    ctx.drawImage(urethane,(i*480)-uremargin,400)
   }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=1
+test=0
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -379,7 +387,7 @@ function main(){
   // flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
-  outro(step)
+  //outro(step)
 
   if (test==0){
 
@@ -417,20 +425,19 @@ function main(){
       ctx.fillText("Greets transition",350,300)
     }
 
-    else if (step<3015){
-
-      outro(step)
-    }
-
     else if (step<3340){
 
-      
-      ctx.fillText("credits",350,300)
+      outro(step)
+
+      if (step>3015){
+
+        ctx.fillText("credits",350,300)
+      }
     }
 
     else{
 
-      ctx.fillText("AE02 logo",350,300)
+    ctx.drawImage(logo,0,0,800,600)
     }
   }
 
@@ -443,6 +450,7 @@ function main(){
 
 items=[
 "./models/gaba0.png",
+"./models/logo.png",
 "./models/gaba1.png",
 "./models/gaba2.png",
 "./models/gaba3.png",
