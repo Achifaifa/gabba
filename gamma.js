@@ -170,6 +170,31 @@ function threedgaba(step){
   eval("ctx.drawImage(gaba"+step+",0,0)")
 }
 
+meatt=1.4;
+meatgoo=0.95
+function meatballs(step){
+  /*
+  meatball effect
+
+  step: clock signal
+  */
+
+  meatang=3.14*step/150;
+  meatballA=[400+Math.cos(meatang*2.5)*350,300+Math.sin(meatang*2)*150];
+  meatballB=[400+Math.sin(meatang*1.8)*350,300+Math.cos(meatang*2.0)*150];
+  meatballC=[400+Math.sin(meatang+100)*350,300+Math.cos(meatang+50)*150];
+
+  for (i=0; i<60; i++){
+    for (j=0; j<80; j++){
+      if ((50/Math.pow(Math.sqrt(Math.pow(meatballA[0]-j*10,2)+Math.pow(meatballA[1]-i*10,2)),meatgoo))+
+          (40/Math.pow(Math.sqrt(Math.pow(meatballB[0]-j*10,2)+Math.pow(meatballB[1]-i*10,2)),meatgoo))+
+          (40/Math.pow(Math.sqrt(Math.pow(meatballC[0]-j*10,2)+Math.pow(meatballC[1]-i*10,2)),meatgoo))>meatt){
+        ctx.fillRect(j*10,i*10,10,10);
+      }
+    }
+  }
+}
+
 speeds=[1,1,1.2,1.7,2,1.5,0.9,1,2,1.3,1.6]
 function flashmodels(step,beat){
 
@@ -187,12 +212,12 @@ function flashmodels(step,beat){
 
 
   ctx.font="50px sans"
-  normscroll(100,"TEST STRING 1",step*speeds[1])
-  normscroll(150,"TEST STRING 2",(step-200)*speeds[2])
-  normscroll(200,"TEST STRING 3",(step-350)*speeds[3])
-  normscroll(250,"TEST STRING 4",(step-100)*speeds[4])
-  normscroll(300,"TEST STRING 5",(step-350)*speeds[5])
-  normscroll(350,"TEST STRING 6",(step-50)*speeds[6])
+  normscroll(100,"Lol pero qué es esto",step*speeds[1])
+  normscroll(150,"Epilepsiaaaa",(step-200)*speeds[2])
+  normscroll(200,"EL CUBOOOOOOO",(step-350)*speeds[3])
+  normscroll(250,"Menudos frikis",(step-100)*speeds[4])
+  normscroll(300,"Demasiado comercial...",(step-350)*speeds[5])
+  normscroll(350,"NO lo PILLO",(step-50)*speeds[6])
   ctx.font="25px quizma-thin";
 
 }
@@ -363,9 +388,24 @@ function outro(step){
   laz0r2(-20,-20,"green",step);
 
   uremargin=(step*4)%480
+
   for (i=0;i<3;i++){
 
     ctx.drawImage(urethane,(i*480)-uremargin,400)
+  }
+  
+  if (step>3160){
+
+    substep=step-3300
+    stagemargin=substep*7
+    ctx.drawImage(stage,stagemargin,0)
+  }
+
+  else if (step>3015){
+
+    substep=step-3015
+    achimargin=substep*7
+    ctx.drawImage(achifaifa,800-achimargin,0)
   }
 }
 
@@ -387,7 +427,8 @@ function main(){
   // flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
-  //outro(step)
+  // outro(step)
+  // meatballs(step)
 
   if (test==0){
 
@@ -422,17 +463,12 @@ function main(){
 
     else if (step<2670){
 
-      ctx.fillText("Greets transition",350,300)
+      meatballs(step)
     }
 
     else if (step<3340){
 
       outro(step)
-
-      if (step>3015){
-
-        ctx.fillText("credits",350,300)
-      }
     }
 
     else{
@@ -450,6 +486,8 @@ function main(){
 
 items=[
 "./models/gaba0.png",
+"./models/achifaifa.png",
+"./models/stage.png",
 "./models/logo.png",
 "./models/gaba1.png",
 "./models/gaba2.png",
