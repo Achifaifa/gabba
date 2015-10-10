@@ -52,6 +52,46 @@ function shaketext(x,y,text){
   }
 }
 
+function drawang(x,y,len,ang){
+
+  xd=Math.sin(ang)*len;
+  yd=Math.cos(ang)*len;
+  drawline(x,y,x+xd,y+yd);
+}
+
+function laz0r(step){
+
+  if (laz0rstep!=step){
+    laz0rx1=Math.random()*600;
+    laz0ry1=Math.random()*600;
+    laz0rx2=Math.random()*600;
+    laz0ry2=Math.random()*600;
+    laz0rstep=step;
+  }
+  // Goto start point and draw a line
+  ctx.beginPath();
+  ctx.strokeStyle=laz0rcolours[Math.floor(Math.random()*4.4)];
+  ctx.moveTo(laz0rx1,laz0ry1);
+  ctx.lineTo(laz0rx2,laz0ry2);
+  ctx.stroke();
+  ctx.strokeStyle="white";
+}
+
+function laz0r2(x,y,colour,step){
+  /*
+  Draws whirling lasers
+
+  step: clock signal
+  */
+
+  ctx.strokeStyle=colour;
+  ctx.fill();
+  for (i=0; i<40; i++){
+    drawang(x,y,1600,(1.27*step)+(i*0.157))
+  }
+  ctx.strokeStyle="white";
+}
+
 function intro(step){
 
   if (step>400){
@@ -309,15 +349,22 @@ function actualgreets(step){
   }
 }
 
-function fitimage(){
+function outro(step){
 
+  laz0r2(500,100,"green",step);
+  laz0r2(-20,-20,"green",step);
 
+  margin=(step*3)%480
+  for (i=0;i<3;i++){
+
+    ctx.drawImage(urethane,(i*480)-margin,400)
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-test=0
+test=1
 function main(){
   
   if(noclear==0){ctx.clearRect(0,0,800,600);}
@@ -332,6 +379,7 @@ function main(){
   // flashmodels(step,beat)
   // greets(step)
   // actualgreets(step)
+  outro(step)
 
   if (test==0){
 
@@ -371,16 +419,19 @@ function main(){
 
     else if (step<3015){
 
-      ctx.fillText("outro",350,300)
+      outro(step)
+    }
+
+    else if (step<3340){
+
+      
+      ctx.fillText("credits",350,300)
     }
 
     else{
 
       ctx.fillText("AE02 logo",350,300)
-
     }
-
-
   }
 
   ctx.fillText(step,10,580);
@@ -432,6 +483,7 @@ items=[
 "./models/gaba38.png",
 "./models/gaba39.png",
 "./models/gaba40.png",
+"./models/urethane.png",
 "./models/lglutamic.png",
 "./models/lserine.png",
 "./models/aspartic.png",
