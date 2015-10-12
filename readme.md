@@ -2,6 +2,10 @@
 
 HTML5 Canvas demo built around the fact that GABA and gabba sound kinda similar. That's it, that's the joke.
 
+Presented at Araba Encounter 01
+Most Technical wild compo, 3rd place
+Most Creative wild compo, 4th place
+
 ###About the demo:
 
 It uses SFIS™ (Super Fast Image Switching) to animate a 3D model. The model was animated and rendered in blender. The rest of the artifacts are either canvas native (Drawings with the standard 2D context operations) or images. 
